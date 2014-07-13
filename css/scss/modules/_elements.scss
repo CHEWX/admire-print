@@ -1,0 +1,38 @@
+// Resuable modukes go here
+
+.island {
+	padding:30px;
+}
+.intro {
+    background:url("/images/bg.jpg");
+    background-size:cover;
+    position:fixed;
+    top:60px;
+    left:0;
+    right:0;
+    height:200px;
+    z-index:-1;
+    color:$white;
+}
+.item {
+    float:left;
+    width:20%;
+
+    img {
+        display:block;
+        width:100%;
+    }
+
+    @include responsive (1200px) {
+        width:25%;
+    }
+    @include responsive (800px) {
+        width:33.33333333%;
+    }
+    @include responsive (600px) {
+        width:50%;
+    }
+    @include responsive (400px) {
+        width:100%;
+    }
+}
