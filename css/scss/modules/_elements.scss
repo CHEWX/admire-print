@@ -14,10 +14,19 @@
     z-index:-1;
     color:$white;
 }
-.item {
-    float:left;
+.isotope-item {
+
+    position:relative;
     width:20%;
 
+    &:hover {
+        img {
+            opacity:0.5;
+        }
+        .isotope-item__link {
+            opacity:1;
+        }
+    }
     img {
         display:block;
         width:100%;
@@ -35,4 +44,43 @@
     @include responsive (400px) {
         width:100%;
     }
+}
+.isotope-item__link {
+    
+    background:$black;
+    height:50px;
+    width:50px;
+    position:absolute;
+    top:10px;
+    left:10px;
+    opacity:0;
+
+    a {
+        display:block;
+        line-height:50px;
+        text-align:center;
+        text-decoration:none;
+    }
+}
+.isotope-item__link--link {
+
+    a{
+        &:before {
+            font-family: FontAwesome;
+            content: "\f0c1";
+            font-size:1.5em;
+            color:$white;
+        }
+    }
+}
+.isotope-item__link--share {
+    top:60px;   
+    display:none;
+
+    a:first-child {
+        background:#333;
+    } 
+    a:last-child {
+        background:#666;
+    } 
 }
