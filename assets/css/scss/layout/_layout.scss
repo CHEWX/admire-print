@@ -18,6 +18,15 @@
 	z-index:3;
 }
 
+.l-header__logo {
+	background:url("/assets/img/logo.gif");
+	background-size:60px;
+	width:60px;
+	height: 60px;
+	text-indent:-9999px;
+	float:left;
+}
+
 .l-footer {
 	background:white;
 

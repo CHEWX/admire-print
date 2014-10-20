@@ -24,7 +24,7 @@
 			var o = $.extend(true,this.defaults,options);
 
 			// Add ul tag to target element
-			$(el).append('<ul class="stream bare-list bare-list--zero"></ul>');
+			$(el).append('<ul class="stream bare-list mtb0"></ul>');
 
 			// Set Pinterest RSS url using Google Feed API
 			var cp = o.id.split('/'),
@@ -45,13 +45,13 @@
 								img = '<img src="'+$('img',item.content).attr('src')+'" alt="" />',
 								linkIcon = '<div class="isotope-item__link isotope-item__link--link"><a href="'+item.link+'" target="_blank"></a></div>',
 								share = '<div class="isotope-item__link isotope-item__link--share">'+shareLink(item.contentSnippet,item.link,o.tweetId)+'</div>',
-								html = '<li>' + img + linkIcon + share;
+								html = '<li class="isotope-item">' + img + linkIcon + share;
 
 							// Get time since
 							//d = d != '' ? html += '<span class="date">'+nicetime(new Date(d).getTime())+'</span></li>' : '' ;
 						}
 
-						console.log(item);
+						//console.log(item);
 
 						// Add pinterest feed items to stream
 						$('.stream',el).append(html);
@@ -72,10 +72,13 @@
 
 					// jQuery Isotope function
 					var $c = $('.stream',el);
-					$c.imagesLoaded( function(){
-						$c.isotope({itemSelector : 'li'});
+					//$c.imagesLoaded( function(){
+						$c.isotope({
+							layoutMode: 'packery',
+							itemSelector : 'li'
+						});
 						$('li',$c).fadeIn();
-					});
+					//});
 				}
 			});
 		}

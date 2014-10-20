@@ -34,9 +34,9 @@ $c-blue: #0074D9;
 $c-orange: #FF851B;
 
 // Color variables
-$primary-color: $colour-name-one;
-$secondary-color: $colour-name-two;
-$tertiary-color: $colour-name-three;
+$primary-color: $c-black;
+$secondary-color: $c-white;
+$tertiary-color: $c-grey;
 
 // Colours through-out - prefix with c-
 $c-bad: $c-red; // Bad color for errors, validation etc.
@@ -46,8 +46,8 @@ $c-warning: $c-orange; // Good color for success etc.
 $c-subtle: $c-grey; // Subtle color for subtle text
 
 // Fonts
-$f-body: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-$f-header: "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$f-body: "droid-serif", Georgia, Times, "Times New Roman", serif;
+$f-header: "droid-serif", Georgia, Times, "Times New Roman", serif;
 $f-pre: Monaco, Menlo, Consolas, "Courier New", monospace;
 $f-blockquote: Georgia, Times, "Times New Roman", serif;
 $f-icons: 'FontAwesome';
