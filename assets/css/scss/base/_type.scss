@@ -1,0 +1,97 @@
+html {
+	font-size: 62.5%;
+   	-webkit-font-smoothing: antialiased;
+   	-moz-font-smoothing: antialiased;
+   	-o-font-smoothing: antialiased;
+   	font-smoothing: antialiased;
+
+	@include breakpoint(m) {
+		font-size: 56%;
+	}
+
+	@include breakpoint(s) {
+		font-size: 50%;
+	}
+}
+
+body {
+	font-family: $f-body;
+	// Sets base to 16px
+	@include rem(1.6);
+	font-weight: 400;
+	font-style: normal;
+	line-height:1.6;
+}
+
+blockquote {
+	font-style: italic;
+	font-weight: 400;
+	font-family: $f-blockquote;
+	padding-left: 25px;
+	font-size: 1.4em;
+	margin: 0 0 $padding/2;
+	border-left:2px solid $primary-color;
+}
+
+// REF - http://stackoverflow.com/questions/19099401/why-use-h1-instead-of-actual-h1
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5 {
+	font-family: $f-header;
+}
+
+h1, .h1 {
+	@include rem(5.0);
+	margin: 0 0 25px;
+	font-weight: 400;
+	font-style: normal;
+}
+
+h2, .h2 {
+	@include rem(4.2);
+	margin: 0 0 25px;
+	font-weight: 400;
+	font-style: normal;
+}
+
+h3, .h3 {
+	@include rem(2.6);
+	margin: 0 0 25px;
+	font-weight: 400;
+	font-style: normal;
+}
+
+h4, .h4 {
+	@include rem(1.8);
+	margin: 0 0 25px;
+	font-weight: 700;
+	font-style: normal;
+}
+
+h5, .h5 {
+	@include rem(1.6);
+	margin: 0 0 25px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+p {
+	margin: 0 0 $padding/2;
+}
+
+pre {
+	font-family: $f-pre;
+	margin:0 0 $padding/2;
+	padding:10px;
+	background:#f5f5f5;
+	border:1px solid rgba(0,0,0,.1);
+	@include border-radius(5px);
+	display:block;
+	font-size: 13px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+}

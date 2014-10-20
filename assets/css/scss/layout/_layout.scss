@@ -1,0 +1,29 @@
+// Main layout styles go here
+
+.l-content {
+	position:absolute;
+	top:260px;
+	left:0;
+	right:0;
+    background:#eee;
+}
+
+.l-header {
+	background:$c-white;
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	height:60px;
+	z-index:3;
+}
+
+.l-footer {
+	background:white;
+
+	ul {
+		li {
+			display:inline-block;
+		}
+	}
+}

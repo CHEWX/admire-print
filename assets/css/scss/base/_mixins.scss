@@ -1,0 +1,105 @@
+// Clear after floats
+@mixin clearfix {
+	zoom:1;
+	&:before, &:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		overflow: hidden;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// Apply clearfix to this classes by default
+.clearfix, .group {
+	@include clearfix;
+}
+
+// Responsive mixins
+@mixin custom-breakpoint($max, $min: $w-min) {
+    @media (min-width: $min) and (max-width: $max) {
+    	@content;
+    }
+}
+
+@mixin breakpoint($point) {
+    @if $point == l {
+	    @media (max-width: $l-max) { @content; }
+    }
+    @else if $point == m {
+		@media (max-width: $m-max)  { @content; }
+    }
+    @else if $point == s {
+		@media (max-width: $s-max)  { @content; }
+    }
+}
+
+@mixin mobilefirst($res) {
+	@media screen and (min-width: $res) {
+		@content;
+	}
+}
+
+// inline block fallback
+@mixin inline-block {
+    display:inline-block;
+    *zoom:1;
+}
+
+// Transition
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+// USAGE - @include transition(all, 1s, ease-in-out);
+
+// Rem font-size PX fallback
+@mixin rem($sizeValue: 1.6) {
+    font-size: ($sizeValue * 10) + px;
+    font-size: $sizeValue + rem;
+}
+// USAGE - @include rem(1.2);
+
+// Cross-browser opacity
+@mixin opacity($opacity, $ie-support:true) {
+
+	@if $ie-support == true {
+
+		filter: alpha(opacity=($opacity * 100));
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + ($opacity * 100) + ")";
+		opacity: $opacity;
+
+	} @else {
+
+		opacity: $opacity;
+
+	}
+}
+// USAGE - @include opacity(1);
+
+// RGBA Mixin with fallback
+@mixin rgba($attr, $color, $background) {
+	$percent: alpha($color) * 100%;
+	$opaque: opacify($color, 1);
+	$solid-color: mix($opaque, $background, $percent);
+	#{$attr}: $solid-color;
+	#{$attr}: $color;
+}
+// USAGE - @include rgba('background-color', rgba(#000, 0.5), #000);
+
+@mixin border-radius($r) {
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    border-radius: $r;
+}
+
+@mixin box-shadow($bs) {
+    -webkit-box-shadow: $bs;
+    -moz-box-shadow: $bs;
+    box-shadow: $bs;
+}
