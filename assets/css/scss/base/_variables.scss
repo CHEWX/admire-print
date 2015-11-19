@@ -1,0 +1,54 @@
+// Consistent settings
+$br: 5px; // Border-radius
+$btn-br: 5px; // Button border-radius
+$padding: 40px; // Padding and margins
+
+// Responsive breakpoints
+$mobile: 480px;
+$tablet: 780px;
+$small-desktop: 1023px;
+
+$s-max: $mobile;
+$m-max: $tablet;
+$l-max: $small-desktop;
+
+// Widths and Heights
+$w-container: 960px;
+$w-min: 0px;
+
+// Site colours
+$colour-name-one: #1271db;
+$colour-name-two: #233E5B;
+$colour-name-three: #aaa;
+
+// Gray Scale
+$c-white: #fff;
+$c-silver: #ddd;
+$c-grey: #aaa;
+$c-light-grey: #ededed;
+$c-black: #000;
+//
+$c-red: #FF4136;
+$c-green: #2ECC40;
+$c-blue: #0074D9;
+$c-orange: #FF851B;
+
+// Color variables
+$primary-color: $colour-name-one;
+$secondary-color: $colour-name-two;
+$tertiary-color: $colour-name-three;
+
+// Colours through-out - prefix with c-
+$c-bad: $c-red; // Bad color for errors, validation etc.
+$c-good: $c-green; // Good color for success etc.
+$c-info: $c-blue; // Good color for success etc.
+$c-warning: $c-orange; // Good color for success etc.
+$c-subtle: $c-grey; // Subtle color for subtle text
+
+// Fonts
+$f-body: 'Playfair Display', serif;
+$f-header: $f-body;
+$f-pre: Monaco, Menlo, Consolas, "Courier New", monospace;
+$f-blockquote: Georgia, Times, "Times New Roman", serif;
+$f-icons: 'FontAwesome';
+$f-icons-path: 'fontawesome-webfont';

@@ -1,0 +1,60 @@
+// Main layout styles go here
+
+.l-header {
+    text-align: center;
+    position: fixed;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: -15px;
+    color: rgba($c-black, .5);
+    transition: all .25s ease;
+    cursor: pointer;
+    @include rem(5.0);
+
+    &:hover {
+        margin-top: 0;
+        height: 50px;
+        line-height: 50px;
+        transition: all .25s ease;
+    }
+
+    span {
+        font-weight: 700;
+        color: rgba($c-white, .5);
+    }
+}
+
+.l-header__logo {
+    display: inline;
+    position: relative;
+
+    &:after {
+        content: "";
+        height: 3px;
+        width: 100%;
+        background: black;
+        position: absolute;
+        top: 34px;
+        left: 0;
+        display: block;
+
+        @include breakpoint(m) {
+            top: 30px;
+        }
+
+        @include breakpoint(s) {
+            top: 27px;
+        }
+    }
+}
+
+.l-main {
+
+}
+
+.l-footer {
+
+}

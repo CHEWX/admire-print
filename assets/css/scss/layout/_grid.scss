@@ -1,0 +1,14 @@
+// 12 Column fluid and responsive grid
+
+.container {
+    max-width: $w-container;
+    //padding: 0 percentage(40px / $w-container);
+    margin: 0 auto;
+    box-sizing: content-box!important;
+
+    @include breakpoint(s) {
+        //padding: 0 20px;
+    }
+}
+
+// Add grid below depending on project - https://github.com/propcom/fe-bem-grid
