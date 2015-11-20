@@ -1,12 +1,20 @@
-// START JS
+// START APP
 
-(function($){
+angular.module('admirePrint', [])
+    .controller('headerCtrl', function( $scope ) {
 
-    $('.l-header').click(function() {
-        $('body').animate({
-            scrollTop: 0
-        }, 'slow');
+        $scope.backToTop = function() {
+
+            $('body').animate({
+                scrollTop: 0
+            }, 'slow');
+
+        };
+
     });
+
+/*
+(function($){
 
     PinterestFeedObject = function(el, options) {
         this.create(el, options);
@@ -136,3 +144,4 @@ $(document).ready(function() {
     }
 
 });
+*/
