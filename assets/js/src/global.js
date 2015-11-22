@@ -1,4 +1,6 @@
 // START APP
+var items = [],
+    page = 0;
 
 angular.module('admirePrint', [])
     .controller('headerCtrl', function( $scope ) {
@@ -11,9 +13,29 @@ angular.module('admirePrint', [])
 
         };
 
+    })
+    .controller('appCtrl', function( $scope ) {
+
+        $('.app').dcPinterestFeed({
+            id: 'admireprint',
+            tweetId: 'admirespaces',
+            results: 100
+        });
+
+    })
+    .controller('footerCtrl', function( $scope ) {
+
+        $scope.more = function() {
+
+            //history.pushState({}, '', '/page/' + page);
+            $('.app').append( items.slice(page + '1', page + 1 + '0') );
+            page++;
+
+        };
+
     });
 
-/*
+
 (function($){
 
     PinterestFeedObject = function(el, options) {
@@ -25,9 +47,6 @@ angular.module('admirePrint', [])
         create: function(el, options) {
 
             var o = $.extend(true,this.defaults,options);
-
-            // Add ul tag to target element
-            $(el).append('<div class="stream"></div>');
 
             // Set Pinterest RSS url using Google Feed API
             var cp = o.id.split('/'),
@@ -42,6 +61,7 @@ angular.module('admirePrint', [])
                 dataType: 'jsonp',
                 success: function(a){
                     a = a.responseData.feed.entries;
+
                     $.each(a, function(i,item){
                         if(i < o.results){
                             var d = item.publishedDate,
@@ -57,17 +77,30 @@ angular.module('admirePrint', [])
                             d = d != '' ? html += '<span class="date">'+nicetime(new Date(d).getTime())+'</span></div></article>' : '' ;
                         }
 
-                        console.log(img);
+                        items.push(html);
 
-                        // Add pinterest feed items to stream
-                        $('.stream',el).append(html);
-                        $('.feed-reel__loading').css("display", "none");
                     });
+
+                    $('.app .preloader').fadeOut(function() {
+
+                        var pinData = items.slice(0, 10);
+
+                        $('.app').append(pinData).hide();
+                        $('.app > *').hide();
+                        $('.app').show();
+                        $('.app .item').each(function(i) {
+                            $(this).delay(i * 250).fadeIn('250');
+                        });
+
+                    });
+
+                    page++;
+
                 },
                 complete: function(){
 
                     // Code to open new popup window for share links + open other links in new browser tab
-                    $('.stream a',el).click(function(e){
+                    $(el).click(function(e){
                         if($(this).parent().hasClass('section-share')){
                             var u = $(this).attr('href');
                             window.open(u,'sharer','toolbar=0,status=0,width=626,height=436');
@@ -132,16 +165,3 @@ angular.module('admirePrint', [])
     }
 
 })(jQuery);
-
-$(document).ready(function() {
-
-    if ($('.app').length > 0) {
-        $('.app').dcPinterestFeed({
-            id: 'admireprint',
-            tweetId: 'admirespaces',
-            results: 10
-        });
-    }
-
-});
-*/

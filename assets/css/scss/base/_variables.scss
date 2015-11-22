@@ -34,9 +34,9 @@ $c-blue: #0074D9;
 $c-orange: #FF851B;
 
 // Color variables
-$primary-color: $colour-name-one;
-$secondary-color: $colour-name-two;
-$tertiary-color: $colour-name-three;
+$primary-color: $c-black;
+$secondary-color: $c-white;
+$tertiary-color: $c-grey;
 
 // Colours through-out - prefix with c-
 $c-bad: $c-red; // Bad color for errors, validation etc.

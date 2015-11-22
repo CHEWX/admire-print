@@ -12,6 +12,7 @@
     color: rgba($c-black, .5);
     transition: all .25s ease;
     cursor: pointer;
+    z-index: 10;
     @include rem(5.0);
 
     &:hover {
@@ -23,7 +24,7 @@
 
     span {
         font-weight: 700;
-        color: rgba($c-white, .5);
+        //color: rgba($c-white, .5);
     }
 }
 
@@ -56,5 +57,9 @@
 }
 
 .l-footer {
+    text-align: center;
 
+    .btn {
+        margin: 100px auto;
+    }
 }
