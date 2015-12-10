@@ -36,14 +36,14 @@ angular.module('admirePrint', []);
                             var d = item.publishedDate,
                                 imgSrc = $('img',item.content).attr('src'),
                                 imgSrc = imgSrc.replace('236x' ,'736x'),
-                                img = '<a href="'+item.link+'" target="_blank"><img src="'+imgSrc+'" alt="" /></a>',
-                                html = '<article class="item">' + img + '<div class="item__text">' + item.contentSnippet;
+                                img = '<img src="'+imgSrc+'" alt="" />',
+                                html = '<article class="item">' + img + '<a href="' + item.link + '" class="item__link" target="_blank"></a><div class="item__content"><div class="item__text">' + item.contentSnippet + '</div>';
 
                             // Add share links
-                            html += '<span class="section-share">'+shareLink(item.contentSnippet,item.link,o.tweetId)+'</span>';
+                            html += '<div class="item__share"> ' + shareLink(item.contentSnippet,item.link,o.tweetId) + '</div>';
 
                             // Get time since
-                            d = d != '' ? html += '<span class="date">'+nicetime(new Date(d).getTime())+'</span></div></article>' : '' ;
+                            d = d != '' ? html += '<div class="item__date">Added ' + nicetime(new Date(d).getTime()) + '</div></div></article>' : '' ;
                         }
 
                         items.push(html);
@@ -100,8 +100,8 @@ angular.module('admirePrint', []);
     // Creates facebook & twitter share links
     function shareLink(st,sq,tweetId){
         var sq = encodeURIComponent(sq), st = encodeURIComponent(st);
-        var s = '<a href="http://www.facebook.com/sharer.php?u='+sq+'&t='+st+'" class="share-facebook fa icon-facebook"></a>';
-        s += '<a href="https://twitter.com/share?url='+sq+'&text='+st+'&via='+tweetId+'" class="share-twitter fa icon-twitter"></a>';
+        var s = '<a href="http://www.facebook.com/sharer.php?u='+sq+'&t='+st+'" class="item__share--facebook fa icon-facebook" target="_blank"></a>';
+        s += '<a href="https://twitter.com/share?url='+sq+'&text='+st+'&via='+tweetId+'" class="item__share--twitter fa icon-twitter" target="_blank"></a>';
         return s;
     }
 
